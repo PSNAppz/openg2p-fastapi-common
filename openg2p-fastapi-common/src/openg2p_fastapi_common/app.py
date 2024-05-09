@@ -48,7 +48,7 @@ class Initializer(BaseComponent):
         if _config.db_datasource:
             db_engine = create_async_engine(
                 _config.db_datasource, echo=_config.db_logging,
-                pool_size=25, max_overflow=25
+                pool_size=25, max_overflow=50
             )
             dbengine.set(db_engine)
 
