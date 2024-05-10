@@ -12,7 +12,7 @@ from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
 from .component import BaseComponent
 from .config import Settings
-from .context import app_registry, component_registry, dbengine, db_session
+from .context import app_registry, component_registry, dbengine
 from .exception import BaseExceptionHandler
 
 _config = Settings.get_config(strict=False)
