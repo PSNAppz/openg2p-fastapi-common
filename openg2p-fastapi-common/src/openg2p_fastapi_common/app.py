@@ -8,11 +8,11 @@ import json_logging
 import orjson
 import uvicorn
 from fastapi import FastAPI
-from sqlalchemy.ext.asyncio import create_async_engine
+from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
 from .component import BaseComponent
 from .config import Settings
-from .context import app_registry, component_registry, dbengine
+from .context import app_registry, component_registry, dbengine, db_session
 from .exception import BaseExceptionHandler
 
 _config = Settings.get_config(strict=False)
@@ -47,8 +47,8 @@ class Initializer(BaseComponent):
     def init_db(self):
         if _config.db_datasource:
             db_engine = create_async_engine(
-                _config.db_datasource, echo=_config.db_logging,
-                pool_size=25, max_overflow=50
+                _config.db_datasource, echo=_config.db_logging
+                # pool_size=25, max_overflow=50
             )
             dbengine.set(db_engine)
 
