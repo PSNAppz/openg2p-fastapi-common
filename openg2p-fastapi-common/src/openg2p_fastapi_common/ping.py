@@ -25,7 +25,7 @@ class PingController(BaseController):
         Returns "pong" always, if the service is healthy.
         This can also used for service health checks.
         """
-        return "pong"
+        return "pong-v2-11:04"
 
 
 class PingInitializer(Initializer):
