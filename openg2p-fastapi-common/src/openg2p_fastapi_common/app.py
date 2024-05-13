@@ -98,7 +98,6 @@ class Initializer(BaseComponent):
             host=_config.host,
             port=_config.port,
             access_log=False,
-            workers=4,
         )
 
     def migrate_database(self, args):
