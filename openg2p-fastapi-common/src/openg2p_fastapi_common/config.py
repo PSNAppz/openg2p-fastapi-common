@@ -47,6 +47,8 @@ class Settings(BaseSettings):
     db_port: Optional[int] = 5432
     db_dbname: Optional[str] = None
     db_logging: Optional[bool] = False
+    db_pool_size: Optional[int] = 5
+    db_max_overflow: Optional[int] = 10
 
     @model_validator(mode="after")
     def validate_db_datasource(self) -> "Settings":
