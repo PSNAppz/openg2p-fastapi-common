@@ -12,7 +12,7 @@ from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
 from .component import BaseComponent
 from .config import Settings
-from .context import app_registry, component_registry, dbengine
+from .context import app_registry, component_registry, dbengine, middleware_registry
 from .exception import BaseExceptionHandler
 
 _config = Settings.get_config(strict=False)
@@ -70,6 +70,9 @@ class Initializer(BaseComponent):
         )
         json_logging.init_request_instrument(app)
         app_registry.set(app)
+        middleware_registries = middleware_registry.get()
+        for middleware in middleware_registries:
+            app.add_middleware(middleware)
         return app
 
     def main(self):
