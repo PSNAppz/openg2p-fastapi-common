@@ -8,7 +8,6 @@ from pydantic_settings import BaseSettings
 from sqlalchemy.ext.asyncio import AsyncEngine
 
 app_registry: ContextVar[Optional[FastAPI]] = ContextVar("app_registry", default=None)
-middleware_registry: ContextVar[List] = ContextVar("middleware_registry", default=[])
 config_registry: ContextVar[List[BaseSettings]] = ContextVar(
     "config_registry", default=[]
 )

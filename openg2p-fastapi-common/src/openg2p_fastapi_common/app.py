@@ -70,9 +70,6 @@ class Initializer(BaseComponent):
         )
         json_logging.init_request_instrument(app)
         app_registry.set(app)
-        middleware_registries = middleware_registry.get()
-        for middleware in middleware_registries:
-            app.add_middleware(middleware)
         return app
 
     def main(self):
