@@ -14,5 +14,5 @@ class BaseMiddleware(BaseComponent):
         self.middleware = None
 
     def post_init(self):
-        app_registry.get().add_middleware(self.middleware)
+        app_registry.get().add_middleware(self.__class__)
         return self
