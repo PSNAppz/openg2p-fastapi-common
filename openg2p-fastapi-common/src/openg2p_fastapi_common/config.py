@@ -82,7 +82,7 @@ class Settings(BaseSettings):
             datasource += f"/{self.db_dbname}"
 
         self.db_datasource = datasource
-
+        print("DEBUG DB Source: ", self.db_datasource)
         return self
 
     @model_validator(mode="after")
