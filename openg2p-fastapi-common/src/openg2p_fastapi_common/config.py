@@ -106,6 +106,7 @@ class Settings(BaseSettings):
         if not result:
             result = cls()
             config_registry.get().append(result)
+        print("DEBUG result: ", result)
         return result
 
     def set_current_worker_id(self):
