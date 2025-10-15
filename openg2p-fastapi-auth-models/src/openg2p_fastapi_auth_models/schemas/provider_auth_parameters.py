@@ -4,7 +4,8 @@ from pydantic import BaseModel, field_validator
 
 
 class OauthClientAssertionType(enum.Enum):
-    private_key_jwt = "private_key_jwt"
+    # private_key_jwt = "private_key_jwt"
+    private_key_jwt = "urn:ietf:params:oauth:client-assertion-type:jwt-bearer"
     """Private Key JWT - jwt will be created using private key available in
     OauthProviderParameters.client_assertion_jwk. The generated JWT will sent as client_assertion
     in the token call."""

@@ -24,8 +24,9 @@ class BeneficiaryEsignetAuth(AuthInterface):
         
         # Validate user type
         user_type = claims.get("user_type") or claims.get("userType")
-        if user_type != "beneficiary":
-            raise ForbiddenError(message="Forbidden. Invalid userType.")
+        # user_id = auth_credentials.sub
+        # if user_type != "beneficiary":
+        #     raise ForbiddenError(message="Forbidden. Invalid userType.")
         
         # For Esignet/OIDC providers, only user_type validation is needed
         

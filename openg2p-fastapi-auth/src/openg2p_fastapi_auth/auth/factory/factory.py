@@ -41,7 +41,8 @@ async def _authenticate_user(
     elif user_type == "staff":
         strategy = StaffKeycloakAuth()
     else:
-        raise ValueError(f"No strategy found for user_type: {user_type}")
+        # raise ValueError(f"No strategy found for user_type: {user_type}")
+        strategy = BeneficiaryEsignetAuth()
     
     return await strategy.authenticate(request, auth_credentials)
 
