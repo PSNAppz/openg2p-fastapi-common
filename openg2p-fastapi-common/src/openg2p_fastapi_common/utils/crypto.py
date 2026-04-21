@@ -117,6 +117,8 @@ class KeymanagerCryptoHelper(CryptoHelper):
             response.raise_for_status()
             return response.json()["response"]["signatureValid"]
         except Exception as e:
+            _logger.error(f"Keymanager APP ID:{km_app_id} and Ref ID:{km_ref_id}")
+            _logger.error(f"Final JWT:{final_jwt}")
             _logger.error("Keymanager JWT Verify API response: %s", response.text)
             _logger.exception("KeymanagerHelper: Error validating JWT")
             raise e
